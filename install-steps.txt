@@ -1,0 +1,10 @@
+----  inventory ---- Start
+
+yarn init -y
+yarn add express cors dotenv morgan zod
+yarn add -D typescript tsc ts-node-dev tsc-alias tsconfig-paths
+yarn add -D @types/express @types/node @types/cors @types/morgan
+
+
+
+----  inventory ---- End
