@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
 
+import { createInventory } from "./controllers/index";
+
 dotenv.config();
 
 const app = express();
@@ -13,6 +15,10 @@ app.use(morgan('dev'));
 app.get('/health', (_req, res) => {
     res.status(200).json({ status: 'UP'});
 });
+
+// routes
+app.post('/inventories', createInventory);
+
 
 // 404 handler
 app.use((_req, res) => {
