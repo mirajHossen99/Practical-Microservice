@@ -8,3 +8,21 @@ yarn add -D @types/express @types/node @types/cors @types/morgan
 
 
 ----  inventory ---- End
+
+
+
+---- Docker ---- Start
+
+docker --version
+
+sudo systemctl start docker
+sudo corepack enable
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+
+docker compose up -d
+docker ps
+docker inspect postgres
+
+---- Docker ---- End
