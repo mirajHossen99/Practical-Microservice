@@ -34,8 +34,10 @@ const updateInventory = async (
     let newQuantity = inventory.quantity;
     if (parsedBody.data.actionType === "IN") {
       newQuantity += parsedBody.data.quantity;
-    } else {
+    } else if (parsedBody.data.actionType === "OUT") {
       newQuantity -= parsedBody.data.quantity;
+    } else {
+        return res.status(400).json({ message: "Invalid action type" });
     }
 
     // update the inventory
@@ -47,7 +49,7 @@ const updateInventory = async (
           create: {
             actionType: parsedBody.data.actionType,
             quantityChanged: parsedBody.data.quantity,
-            lastQuantity: inventory?.quantity || 0,
+            lastQuantity: lastHistory?.newQuantity || 0,
             newQuantity,
           },
         },

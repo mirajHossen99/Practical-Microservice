@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
 
-import { createInventory } from "./controllers/index";
+import { createInventory, updateInventory } from "./controllers/index";
 
 dotenv.config();
 
@@ -17,7 +17,9 @@ app.get('/health', (_req, res) => {
 });
 
 // routes
+app.put('/inventories/:id', updateInventory);
 app.post('/inventories', createInventory);
+
 
 
 // 404 handler
