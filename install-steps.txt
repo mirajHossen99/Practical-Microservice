@@ -28,6 +28,7 @@ Copy the .env, gitignore, package.json, tsconfig.json and src folder to Inventor
 Upadate the all file on depend requirements
 
 yarn
+yarn add axios
 
 yarn prisma init
 
