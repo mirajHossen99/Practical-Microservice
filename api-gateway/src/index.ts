@@ -42,6 +42,11 @@ app.get("/health", (_req, res) => {
   res.status(200).json({ message: "API Gateway is running" });
 });
 
+// 404 handler
+app.use((_req, res) => {
+  res.status(404).json({ message: "Not Found" });
+});
+
 // Error handler
 app.use(
   (
