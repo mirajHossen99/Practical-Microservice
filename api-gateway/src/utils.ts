@@ -1,6 +1,5 @@
 import { Express, Request, Response } from "express";
 import config from "./config.json";
-import { hostname } from "node:os";
 import axios from "axios";
 
 export const createHandler = (
