@@ -5,11 +5,11 @@
       "routes": [
         {
           "path": "/products",
-          "method": ["get", "post"]
+          "methods": ["get", "post"]
         },
         {
             "path": "/products/:id",
-            "method": ["get"]
+            "methods": ["get"]
         }
       ]
     },
@@ -18,11 +18,11 @@
       "routes": [
         {
             "path": "/inventories/:id",
-            "method": ["put"]
+            "methods": ["put"]
         },
         {
           "path": "/inventories/:id/details",
-          "method": ["get"]
+          "methods": ["get"]
         }
       ]
     }
