@@ -25,7 +25,7 @@ yarn prisma migrate reset
 ---- Product ---- Start
 
 Copy the .env, gitignore, package.json, tsconfig.json and src folder to Inventory
-Upadate the all file on depend requirements
+Modify the all file on depend requirements
 
 yarn
 yarn add axios
@@ -39,6 +39,14 @@ generate:
 yarn prisma generate
 
 ---- Product ---- End
+
+
+---- API Gateway ---- Start
+
+Copy the .env, gitignore, package.json, tsconfig.json file to Product
+Modify the all file on depend requirements.
+
+---- API Gateway ---- End
 
 
 
