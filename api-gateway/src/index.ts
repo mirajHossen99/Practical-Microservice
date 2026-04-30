@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
+import { configureRoutes } from "./utils";
 
 dotenv.config();
 
@@ -32,6 +33,9 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Todo: Auth middleware
+
+// routes
+configureRoutes(app);
 
 // health check
 app.get("/health", (_req, res) => {
