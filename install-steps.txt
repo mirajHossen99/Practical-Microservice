@@ -46,6 +46,8 @@ yarn prisma generate
 Copy the .env, gitignore, package.json, tsconfig.json file to Product
 Modify the all file on depend requirements.
 
+yarn add helmet express-rate-limit
+
 ---- API Gateway ---- End
 
 
