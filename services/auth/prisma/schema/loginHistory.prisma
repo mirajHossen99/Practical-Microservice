@@ -1,0 +1,17 @@
+enum LoginAttempt {
+    SUCCESS
+    FAILED
+}
+
+model LoginHistory {
+    id        String       @id @default(cuid())
+    userId    String
+    ipAddress String?
+    userAgent String?
+    attempt   LoginAttempt @default(SUCCESS)
+    loginAt   DateTime     @default(now())
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+}
