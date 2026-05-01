@@ -69,6 +69,28 @@ yarn prisma generate
 
 ------------------------------------------------------
 
+---- Auth ---- Start
+
+Copy the .env, gitignore, package.json, tsconfig.json to User or any service
+Copy the src folder to User or any service
+Modify the all or any file on depend requirements
+
+yarn
+
+ -- Pirsma --
+ 
+yarn prisma init
+
+Migrate:
+yarn migrate:dev
+
+generate:
+yarn prisma generate
+
+---- Auth ---- End
+
+------------------------------------------------------
+
 ---- API Gateway ---- Start
 
 Copy the .env, gitignore, package.json, tsconfig.json file to Product
