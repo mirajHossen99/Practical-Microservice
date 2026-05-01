@@ -1,3 +1,4 @@
+
 ----  inventory ---- Start
 
 yarn init -y
@@ -7,11 +8,12 @@ yarn add -D @types/express @types/node @types/cors @types/morgan
 
 yarn add -D prisma
 yarn add @prisma/client
-yarn prisma init
-yarn prisma generate
 
 
   -- Prisma --
+
+yarn prisma init
+yarn prisma generate
 
 Migrate:
 yarn migrate:dev
@@ -22,6 +24,8 @@ yarn prisma migrate reset
 
 ----  inventory ---- End
 
+------------------------------------------------------
+
 ---- Product ---- Start
 
 Copy the .env, gitignore, package.json, tsconfig.json and src folder to Inventory
@@ -30,6 +34,7 @@ Modify the all file on depend requirements
 yarn
 yarn add axios
 
+ -- Pirsma --
 yarn prisma init
 
 Migrate:
@@ -40,6 +45,29 @@ yarn prisma generate
 
 ---- Product ---- End
 
+-----------------------------------------------------
+
+---- User ---- Start
+
+Copy the .env, gitignore, package.json, tsconfig.json to Product or any service
+Copy the src folder to Product or any service
+Modify the all or any file on depend requirements
+
+yarn
+
+ -- Pirsma --
+ 
+yarn prisma init
+
+Migrate:
+yarn migrate:dev
+
+generate:
+yarn prisma generate
+
+---- User ---- End
+
+------------------------------------------------------
 
 ---- API Gateway ---- Start
 
@@ -50,8 +78,7 @@ yarn add helmet express-rate-limit
 
 ---- API Gateway ---- End
 
-
-
+------------------------------------------------------
 
 ---- Docker ---- Start
 
