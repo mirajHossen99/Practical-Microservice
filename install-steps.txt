@@ -100,6 +100,8 @@ Copy the src folder to User or any service
 Modify the all or any file on depend requirements
 
 yarn
+yarn add nodemailer
+yarn add -D @types/nodemailer
 
 
  -- Pirsma --
@@ -136,11 +138,19 @@ sudo corepack enable
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
+Containers run:
+   docker compose up -d
 
-docker compose up -d
-docker ps
-docker inspect postgres
+Containers lists:
+   docker ps
 
+sudo docker inspect CONTAINER NAME (docker inspect postgres)
+
+Containers stop:
+   sudo docker compose stop
+
+Containers remove & stop:
+   sudo docker compose down
 
    -- Remove image--
 
