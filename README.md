@@ -18,3 +18,13 @@ The core product information is handled by this service.
 Responsible for managing user profiles and related data.
 - **Data Persistence:** Safely stores and manages user information.
 - **Profile & Roles:** Handles profile updates and User Role Management (RBAC).
+
+### 4. Auth Service
+The security gateway for the application.
+- **Identity Management:** Handles user registration, login, and multi-factor authentication (MFA).
+- **Token Service:** Issues and verifies JWT tokens for secure inter-service communication.
+
+### 5. Email Service
+Handles all asynchronous communication with users.
+- **Transactional Messaging:** Sends system-generated emails (e.g., Verify Email, Order Receipts).
+- **Template Management:** Manages dynamic email templates for consistent branding.
