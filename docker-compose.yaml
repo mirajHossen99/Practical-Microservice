@@ -37,5 +37,16 @@ services:
       postgres:
         condition: service_healthy
 
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    restart: on-failure
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+    volumes:
+      - mailhog:/var/lib/mailhog
+
 volumes:
   postgres:
+  mailhog:
