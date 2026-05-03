@@ -52,11 +52,12 @@ const verifyEmail = async (req: Request, res: Response, next: NextFunction) => {
 
     // Send success email
     await axios.post(`${EMAIL_SERVICE}/emails/send`, {
-      to: user.email,
+      recipient: user.email,
       subject: "Email Verified",
       body: `Hello ${user.name}, your email has been verified successfully. You can now log in to your account.`,
       source: "verify-email",
     });
+
 
     return res.status(200).json({ message: "Email verified successfully" });
   } catch (error) {

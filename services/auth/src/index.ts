@@ -34,7 +34,7 @@ app.get("/health", (_req, res) => {
 // });
 
 // routes
-app.post("/auth/registration", userRegistration);
+app.post("/auth/register", userRegistration);
 app.post("/auth/login", userLogin);
 app.post("/auth/verify-token", verifyAccessToken);
 app.post("/auth/verify-email", verifyEmail);

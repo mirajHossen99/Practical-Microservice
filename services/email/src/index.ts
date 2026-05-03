@@ -29,7 +29,7 @@ app.get("/health", (_req, res) => {
 // });
 
 // routes
-app.post('emails/send', sendEmail);
+app.post('/emails/send', sendEmail);
 app.get('/emails', getEmails);
 
 // 404 handler

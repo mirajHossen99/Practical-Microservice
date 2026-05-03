@@ -5,5 +5,5 @@ export const defaultSender =
 
 export const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "smtp.mailtrap.io",
-  port: Number(process.env.SMTP_PORT || 2525),
+  port: parseInt(process.env.SMTP_PORT || '1025'),
 });
