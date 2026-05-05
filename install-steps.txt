@@ -116,6 +116,22 @@ yarn prisma generate
 
 ---- Email ---- End
 
+yarn add ioredis
+yarn add -D @types/ioredis
+
+------------------------------------------------------
+
+---- Cart ---- Start
+
+Copy the .env, gitignore, package.json, tsconfig.json file to API-Gateway
+Copy the src/index.ts folder to email or any service
+Modify the all file on depend requirements.
+
+yarn
+yarn add ioredis
+
+---- Cart ---- End
+
 ------------------------------------------------------
 
 ---- API Gateway ---- Start
@@ -159,3 +175,15 @@ sudo docker rm -f pgadmin
 
 
 ---- Docker ---- End
+
+------------------------------------------------------
+
+---- Redis ---- Start
+
+1st time:
+sudo docker run -it --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+
+2nd time:
+sudo docker start -i redis-stack
+
+---- Redis ---- End
