@@ -129,6 +129,9 @@ Modify the all file on depend requirements.
 
 yarn
 yarn add ioredis
+yarn add -D @types/ioredis
+yarn add uuid
+yarn add -D @types/uuid
 
 ---- Cart ---- End
 

@@ -1,5 +1,6 @@
 import { Redis } from "ioredis";
 import { REDIS_HOST, REDIS_PORT } from "@/config";
+import { clearCart } from "@/services";
 
 const redis = new Redis({
   host: REDIS_HOST,
@@ -13,5 +14,10 @@ redis.subscribe(CHANNEL_KEY);
 redis.on("message", async (ch, message) => {
   if (ch === CHANNEL_KEY) {
     console.log("Key expired: ", message);
+
+    const cartKey = message.split(":").pop();
+    if (!cartKey) return;
+
+    clearCart(cartKey);
   }
 });
