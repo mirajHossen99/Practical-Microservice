@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
-import { createProduct, getProductDetails, getProducts } from "./controllers";
+import { createProduct, getProductDetails, getProducts, updateProduct } from "./controllers";
 
 dotenv.config();
 
@@ -16,20 +16,21 @@ app.get("/health", (_req, res) => {
 });
 
 // CORS middleware
-app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:8081', 'http://127.0.0.1:8081'];
-  const origin = req.headers.origin || '';
+// app.use((req, res, next) => {
+//   const allowedOrigins = ['http://localhost:8081', 'http://127.0.0.1:8081'];
+//   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    next();
-  } else {
-    res.status(403).json({ message: "Forbidden" });
-  }
-});
+//   if (allowedOrigins.includes(origin)) {
+//     res.setHeader('Access-Control-Allow-Origin', origin);
+//     next();
+//   } else {
+//     res.status(403).json({ message: "Forbidden" });
+//   }
+// });
 
 // routes
 app.get("/products/:id", getProductDetails);
+app.put("/products/:id", updateProduct);
 app.get("/products", getProducts);
 app.post("/products", createProduct);
 
