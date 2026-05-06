@@ -1,0 +1,11 @@
+model OrderItem {
+    id          String @id @default(cuid())
+    orderId     String
+    order       Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+    productId   String
+    productName String
+    sku         String
+    price       Float
+    quantity    Int
+    total       Float
+}
