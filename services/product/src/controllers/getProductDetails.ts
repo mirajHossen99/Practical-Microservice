@@ -9,7 +9,6 @@ const getProductDetails = async (
   next: NextFunction,
 ) => {
   try {
-
     // Check validate product
     const { id } = req.params;
     const product = await prisma.product.findUnique({
@@ -22,7 +21,6 @@ const getProductDetails = async (
         price: true,
         inventoryId: true,
       },
-      
     });
 
     if (!product) {
@@ -44,7 +42,6 @@ const getProductDetails = async (
       await prisma.product.update({
         where: { id: product.id },
         data: { inventoryId: inventory.id },
-        
       });
 
       console.log("Product updated with inventoryId successfully", product.id);
@@ -66,14 +63,11 @@ const getProductDetails = async (
     );
 
     return res.status(200).json({
-      data: {
-        ...product,
-        inventoryId: product.inventoryId,
-        stock: inventory.quantity || 0,
-        stockStatus: inventory.quantity > 0 ? "In Stock" : "Out of Stock",
-      },
+      ...product,
+      inventoryId: product.inventoryId,
+      stock: inventory.quantity || 0,
+      stockStatus: inventory.quantity > 0 ? "In Stock" : "Out of Stock",
     });
-
   } catch (error) {
     next(error);
   }

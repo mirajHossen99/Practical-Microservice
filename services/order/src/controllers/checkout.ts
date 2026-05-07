@@ -40,8 +40,8 @@ const checkout = async (req: Request, res: Response, next: NextFunction) => {
           productName: product.name as string,
           sku: product.sku as string,
           price: product.price as number,
-          quantity: Number(item.quantity),
-          total: Number(product.price) * Number(item.quantity),
+          quantity: item.quantity,
+          total: (product.price as number) * item.quantity,
         };
       }),
     );
@@ -56,7 +56,7 @@ const checkout = async (req: Request, res: Response, next: NextFunction) => {
     const order = await prisma.order.create({
       data: {
         userId: parsedBody.data.userId,
-        userName: parsedBody.data.userEmail,
+        userName: parsedBody.data.userName,
         userEmail: parsedBody.data.userEmail,
         subTotal,
         tax,

@@ -10,5 +10,5 @@ export const OrderDTOSchema = z.object({
 export const CartItemDTOSchema = z.object({
   productId: z.string(),
   inventoryId: z.string(),
-  quantity: z.string(),
+  quantity: z.number(),
 });
