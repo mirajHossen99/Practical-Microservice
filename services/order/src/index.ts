@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
-
+import { checkout, getOrderDetails, getOrders } from "./controllers";
 
 dotenv.config();
 
@@ -29,7 +29,9 @@ app.get("/health", (_req, res) => {
 // });
 
 // routes
-
+app.get("/orders/:id", getOrderDetails);
+app.get("/orders", getOrders);
+app.post("/orders/checkout", checkout);
 
 // 404 handler
 app.use((_req, res) => {
