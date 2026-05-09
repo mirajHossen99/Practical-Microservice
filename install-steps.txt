@@ -133,6 +133,10 @@ yarn add -D @types/ioredis
 yarn add uuid
 yarn add -D @types/uuid
 
+ -- RabbitMQ --
+yarn add amqplib
+yarn add -D @types/amqplib
+
 ---- Cart ---- End
 
 ------------------------------------------------------
@@ -144,6 +148,9 @@ Copy the src/index.ts folder to Product
 Modify the all file on depend requirements.
 
 yarn
+run service: yarn dev
+
+ -- RabbitMQ --
 yarn add amqplib
 yarn add -D @types/amqplib
 
