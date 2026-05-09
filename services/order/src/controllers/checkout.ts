@@ -4,6 +4,7 @@ import axios from "axios";
 import { OrderDTOSchema, CartItemDTOSchema } from "@/schemas";
 import { PRODUCT_SERVICE, EMAIL_SERVICE, CART_SERVICE } from "@/config";
 import { z } from "zod";
+import sendToQueue from "@/queue";
 
 const checkout = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -69,20 +70,29 @@ const checkout = async (req: Request, res: Response, next: NextFunction) => {
       },
     });
 
+    console.log('Order created: ', order.id);
+
     // clear cart
-    await axios.get(`${CART_SERVICE}/cart/clear`, {
-      headers: {
-        "x-cart-session-id": parsedBody.data.cartSessionId,
-      },
-    });
+    // await axios.get(`${CART_SERVICE}/cart/clear`, {
+    //   headers: {
+    //     "x-cart-session-id": parsedBody.data.cartSessionId,
+    //   },
+    // });
 
     // Send email
-    await axios.post(`${EMAIL_SERVICE}/emails/send`, {
-      recipient: parsedBody.data.userEmail,
-      subject: "Order Confirmation",
-      body: `Thank you ${order.userName} for your order. Your order id is ${order.id}. Your order total is ${order.grandTotal}`,
-      source: "Checkout",
-    });
+    // await axios.post(`${EMAIL_SERVICE}/emails/send`, {
+    //   recipient: parsedBody.data.userEmail,
+    //   subject: "Order Confirmation",
+    //   body: `Thank you ${order.userName} for your order. Your order id is ${order.id}. Your order total is ${order.grandTotal}`,
+    //   source: "Checkout",
+    // });
+
+    // send to queue
+    sendToQueue("send-email", JSON.stringify(order));
+    sendToQueue(
+      "clear-cart",
+      JSON.stringify({ cartSessionId: parsedBody.data.cartSessionId }),
+    );
 
     return res.status(201).json(order);
   } catch (error) {

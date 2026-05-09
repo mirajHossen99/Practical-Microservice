@@ -16,3 +16,5 @@ export const CART_TTL = process.env.CART_TTL
 
 export const INVENTORY_SERVICE =
   process.env.INVENTORY_URL || "http://localhost:4002";
+
+export const QUEUE_URL = process.env.QUEUE_URL || "amqp://localhost";
