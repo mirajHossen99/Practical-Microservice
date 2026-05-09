@@ -144,6 +144,8 @@ Copy the src/index.ts folder to Product
 Modify the all file on depend requirements.
 
 yarn
+yarn add amqplib
+yarn add -D @types/amqplib
 
  -- Pirsma --
  
