@@ -6,6 +6,7 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import { addToCart, clearCart, getMyCart } from "./controllers";
 import './events/onKeyExpires';
+import './receiver';
 
 
 dotenv.config();
