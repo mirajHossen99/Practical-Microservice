@@ -221,3 +221,13 @@ sudo docker run -it --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-sta
 sudo docker start -i redis-stack
 
 ---- Redis ---- End
+
+------------------------------------------------------
+
+---- KONG ---- Start
+
+docker compose -f .\kong-docker-compose.yml up
+
+docker compose up
+
+---- KONG ---- Start
